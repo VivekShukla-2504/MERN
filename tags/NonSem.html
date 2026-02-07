@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- Non-semantic tags example -->
+    <form action="">
+        <div>
+            <h1>Student Registration Form</h1>
+            <div>
+                <label for="texts">Roll No :</label>
+                <input type="text" id="texts" placeholder="Enter your roll no">
+                <br>
+                <label for="name">Student Name :</label>
+                <input type="text" name="" id="name" placeholder="first Name"> -
+                <input type="text" name="" id="name" placeholder="last Name">
+                <br>
+                <label for="name">Student Name :</label>
+                <input type="text" name="" id="name" placeholder="Enter your Father Name"> -
+               <br>
+                <label for="dob"> Date of birth:</label>
+                <select id="day">
+                    <option value="">Day</option>
+                    
+                </select>
+
+                <select id="month">
+                    <option value="">Month</option>
+                </select>
+
+                <select id="year">
+                    <option value="">Year</option>
+                </select>
+                <br>
+                <label for="phone">Mobile No.</label>
+                <select name="" id="phone">
+                    <option value="">Select Country Code</option>
+                    <option value="+91">+91 </option>
+                    <option value="+1">+1 </option>
+                    <option value="+44">+44</option>
+                </select>
+                <input type="tel" name="" id="phone" placeholder="Enter your mobile no">
+                <br>
+                <label for="em">E-mail:</label>
+                <input type="email" name="" id="em" placeholder="Enter your E-mail">
+                <br>
+                <label for="pass">Password:</label>
+                <input type="password" name="" id="pass" placeholder="Enter your password">
+                <br>
+                <label for=""> Gender :</label>
+                <input type="radio" name="" id="gender" value="male"> Male 
+                <input type="radio" name="" id="gender" value="female"> Female <br>
+                <label for="">Department :</label>
+                <input type="checkbox" name="" id="dept" value="CSE"> CSE
+                <input type="checkbox" name="" id="dept" value="CSE"> IT
+                <input type="checkbox" name="" id="dept" value="CSE"> ECE
+                <input type="checkbox" name="" id="dept" value="CSE"> Civil
+                <input type="checkbox" name="" id="dept" value="CSE"> Mech
+                <br>
+                <label for="">Courses :</label>
+                <select name="" id="courses" >
+                    <option value="MCA">MCA</option>
+                    <option value="BCA">BCA</option>
+                    <option value="B.tech">B.tech</option>
+                    <option value="M.tech">M.tech</option>
+                    <option value="Data Science">Data Science</option>
+                </select>
+                
+            </div>
+        </div>
+    </form>
+</body>
+<script>
+    // Day
+    for (let d = 1; d <= 31; d++) {
+        document.getElementById("day").innerHTML +=
+            `<option value="${d}">${d}</option>`;
+    }
+
+    // Month
+    const months = [
+        "January","February","March","April","May","June",
+        "July","August","September","October","November","December"
+    ];
+
+    months.forEach((month, index) => {
+        document.getElementById("month").innerHTML +=
+            `<option value="${index + 1}">${month}</option>`;
+    });
+
+    // Year (from 1950 to current year)
+    const currentYear = new Date().getFullYear();
+    for (let y = currentYear; y >= 1947; y--) {
+        document.getElementById("year").innerHTML +=
+            `<option value="${y}">${y}</option>`;
+    }
+</script>
+</html>
