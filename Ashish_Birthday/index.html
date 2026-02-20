@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy Birthday 🎉</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="dark">
+  <button id="toggleMode">🌙 Dark Mode</button>
+
+  <audio id="bgm" loop>
+    <source src="music.mp3" type="audio/mpeg">
+  </audio>
+
+  <section class="hero">
+    <h1>🎉 Happy Birthday <span id="name">Aashish</span> 🎉</h1>
+    <h3>Normal people are born once a year…
+but you? You’re a legend, bro — you show up twice a year 😂😎</h3>
+    <p>Today is all about YOU ❤️</p>
+    <div class="controls">
+      <button id="musicBtn" onclick="toggleMusic()">▶️ Play Music</button>
+      <button onclick="launchConfetti()">🎊 Surprise</button>
+    </div>
+  </section>
+
+  <section class="gallery">
+    <h2>📸 Memory Lane</h2>
+    <div class="slideshow">
+      <img id="slide" src="photo1.jpg" alt="memories">
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Body Mass Index</title>
+    <style>
+  * {
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+  }
+
+  body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #e3f2fd, #fffde7);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+
+  nav {
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+
+  nav a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 600;
+  }
+
+  nav a:hover {
+    text-decoration: underline;
+  }
+
+  form {
+    background: #fff;
+    padding: 24px 28px;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 420px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  }
+
+  form p {
+    margin-bottom: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+  }
+
+  label {
+    font-weight: 600;
+    color: #333;
+  }
+
+  input {
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    width: 150px;
+    outline: none;
+    font-size: 14px;
+  }
+
+  input:focus {
+    border-color: #1976d2;
+    box-shadow: 0 0 0 2px rgba(25, 118, 210, 0.15);
+  }
+
+  button {
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px 12px;
+    border: none;
+    border-radius: 8px;
+    background: #1976d2;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+
+  button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 12px rgba(25, 118, 210, 0.25);
+  }
+
+  #results {
+    margin-top: 16px;
+    font-size: 18px;
+    font-weight: 700;
+    text-align: center;
+  }
+
+  #weight-guide {
+    margin-top: 16px;
+    padding: 12px;
+    background: #f5f7fa;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #444;
+  }
+
+  #weight-guide p {
+    margin: 6px 0;
+  }
+  @media (max-width: 480px) {
+  form {
+    padding: 18px 16px;
+  }
+
+  form p {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  label {
+    font-size: 14px;
+  }
+
+  input {
+    width: 100%;
+  }
+
+  button {
+    font-size: 15px;
+    padding: 12px;
+  }
+
+  nav {
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+  }
+}
+#results {
+  margin-top: 16px;
+  font-size: 18px;
+  font-weight: 700;
+  text-align: center;
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: #eef3ff;
+}
+</style>
+</head>
+<body>
+    <nav>
+        <a href="http://127.0.0.1:5500/BMI_Index/index.html" aria-current="page">Home</a>
+        <a href="https://leetcode.com/u/Vivek_Shukla_25/">Leetcode</a>
+
+    </nav>
+    <form action="">
+        <p><label for="">height in cm:</label> <input type="number" name="" id="height"></p>
+        <p><label for="">weight in kg:</label> <input type="number" name="" id="weight"></p>
+        <button>Calculate</button>
+        <div id="results"></div>
+        <div id ="weight-guide">
+            <p>Under weight = less then 18.6</p>
+            <p>Normal range = 18.6 and 24.9</p>
+            <p>Overweight = Greater than 24.9</p>
+        </div>
+    </form>
+    <script src="script.js"></script>
+</body>
+</html>

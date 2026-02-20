@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Color </title>
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+    }
+
+    body {
+        min-height: 100vh;
+        background: #f5f5f5;
+        text-align: center;
+        padding: 20px;
+    }
+
+    nav {
+        margin-bottom: 20px;
+        
+    }
+
+    nav a {
+        margin: 0 10px;
+        text-decoration: none;
+        color: #333;
+        font-weight: 600;
+       
+    }
+
+    nav a:hover {
+        text-decoration: underline;
+    }
+
+    h1 {
+        margin: 20px 0;
+    }
+
+    .button {
+        display: inline-block;
+        height: 60px;
+        width: 60px;
+        border-radius: 50%;
+        margin: 10px;
+        border: 2px solid #333;
+        cursor: pointer;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .button:hover {
+        transform: scale(1.1);
+        box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    }
+
+    #grey {
+        background-color: grey;
+    }
+
+    #white {
+        background-color: white;
+    }
+
+    #blue {
+        background-color: blue;
+    }
+
+    #yellow {
+        background-color: yellow;
+    }
+
+    h2 {
+        margin-top: 30px;
+        color: #333;
+    }
+
+    h2 span {
+        display: block;
+        font-size: 16px;
+        color: #666;
+        margin-top: 8px;
+    }
+</style>
+</head>
+<body>
+    <nav>
+        <a href="http://127.0.0.1:5500/4Project%20of%20DOM/index.html" aria-current="page">Home</a>
+        <a href="https://leetcode.com/u/Vivek_Shukla_25/">Leetcode</a>
+
+    </nav>
+    <h1>Color Scheme swticher </h1>
+    <span class="button" id="grey"></span>
+    <span class="button" id="white"></span>
+    <span class="button" id="blue"></span>
+    <span class="button" id="yellow"></span>
+    <span class="button" id="purple"></span>
+    <h2>
+        try click to Change the background
+        <span>change the background color of this page</span>
+    </h2>
+    <script src="script.js"></script>
+</body>
+</html>
