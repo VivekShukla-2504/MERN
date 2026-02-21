@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital clock</title>
+    <style>
+  * {
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+  }
+
+  body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #e3f2fd, #fffde7);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+
+  nav {
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+
+  nav a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 600;
+  }
+
+  nav a:hover {
+    text-decoration: underline;
+  }
+  #banner
+  {
+    color: #070f0a;
+    
+  } 
+  #clock {
+  background-color: rgb(24, 243, 148);
+  border-radius: 10px;
+  padding: 20px 30px;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-top: 10px;
+}
+.center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+  @media (max-width: 480px) {
+ 
+ 
+  nav {
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+  }
+}
+
+</style>
+</head>
+<body>
+    <nav>
+        <a href="http://127.0.0.1:5500/Digital%20clock/index.html?" aria-current="page">Home</a>
+        <a href="https://leetcode.com/u/Vivek_Shukla_25/">Leetcode</a>
+
+    </nav>
+   <div class="center">
+    <div id="banner"><span>Your local time</span></div>
+    <div id="clock"></div>
+   </div>
+    <script src="clock.js"></script>
+</body>
+</html>

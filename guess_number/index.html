@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital clock</title>
+    <style>
+  /* Reset */
+* {
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background: radial-gradient(1200px 600px at 10% 10%, #e3f2fd 0%, #fffde7 40%, #e8f5e9 100%);
+  display: grid;
+  place-items: center;
+  padding: 16px;
+}
+
+/* Card container */
+#wrapper {
+  width: 100%;
+  max-width: 520px;
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(6px);
+  border-radius: 16px;
+  padding: 18px 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  margin-bottom: 12px;
+}
+
+#wrapper h2 {
+  margin: 0 0 6px;
+  text-align: center;
+}
+#wrapper h3 {
+  margin: 0;
+  text-align: center;
+  font-weight: 500;
+  color: #555;
+}
+
+/* Nav */
+nav {
+  width: 100%;
+  max-width: 520px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #0f172a;
+  font-weight: 700;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(0,0,0,0.05);
+}
+nav a:hover {
+  background: rgba(0,0,0,0.1);
+}
+
+/* Form */
+.form {
+  width: 100%;
+  max-width: 520px;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  margin-bottom: 10px;
+}
+
+.form h1 {
+  font-size: clamp(1.1rem, 3vw, 1.4rem);
+  margin: 0 0 10px;
+  text-align: center;
+}
+
+.guessField {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  outline: none;
+  font-size: 1rem;
+}
+.guessField:focus {
+  border-color: #22c55e;
+  box-shadow: 0 0 0 3px rgba(34,197,94,0.2);
+}
+
+.guessSubmit {
+  width: 100%;
+  margin-top: 10px;
+  padding: 12px 16px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  color: #fff;
+  font-weight: 800;
+  cursor: pointer;
+}
+.guessSubmit:hover { filter: brightness(1.05); }
+.guessSubmit:disabled { opacity: 0.6; cursor: not-allowed; }
+
+/* Result */
+.result {
+  width: 100%;
+  max-width: 520px;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 14px 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  text-align: center;
+}
+
+.result p {
+  margin: 6px 0;
+  color: #334155;
+  font-weight: 600;
+}
+
+.lowOrHi h2 {
+  margin: 8px 0 0;
+}
+
+/* Button */
+.newGameBtn {
+  margin-top: 12px;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 999px;
+  background: #0f172a;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 700;
+}
+.newGameBtn:hover { opacity: 0.9; }
+
+/* Mobile tweaks */
+@media (max-width: 480px) {
+  nav {
+    flex-direction: column;
+  }
+  #wrapper, .form, .result {
+    border-radius: 14px;
+    padding: 14px;
+  }
+}
+
+</style>
+</head>
+<body>
+    <nav>
+        <a href="http://127.0.0.1:5500/guess_number/index.html" aria-current="page">Home</a>
+        <a href="https://leetcode.com/u/Vivek_Shukla_25/">Leetcode</a>
+
+    </nav>
+    <div id="wrapper">
+        <h2> Number guessing game</h2>
+    <h3>Try and guess a random between 1 and 100.<br> You have 10 attempts to guess the right number.</h3>
+     
+    </div>
+  <div class="form">
+    <label for="guessFeild" id="guess"><h1>Guess a number</h1></label>
+    <input type="text" id="guessFeild" class="guessField">
+    <input type="submit" id="subt" value="Submit guess" class = "guessSubmit">
+</div>
+<div class="result">
+    <p>Previous Guesses: <span class="guesses"></span></p>
+    <p>Remaining Guesses: <span class="lastResult">10</span></p>
+    <p class="lowOrHi"></p>
+</div>
+    <script src="guess.js"></script>
+</body>
+</html>
