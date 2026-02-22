@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1> Vivek_Shukla_25</h1>
+    <button id="stop">Stop</button>
+</body>
+<script>
+    const change =function()
+    {
+    document.querySelector('h1').innerHTML="shukla ji";
+    }
+    const clear = setTimeout(change,2000) // use to change text after some time
+     document.querySelector('#stop').addEventListener('click',function()
+    {
+      clearTimeout(clear)
+      console.log("Stopped")
+    })
+</script>
+</html>
