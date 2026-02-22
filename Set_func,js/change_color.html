@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Change Color</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    }
+
+    body {
+      min-height: 100svh; /* better for mobile browsers */
+      margin: 0;
+      display: grid;
+      place-items: center;
+      background: #0f172a;
+      color: #e5e7eb;
+      transition: background-color 0.6s ease;
+      padding: 16px;
+    }
+
+    nav {
+      position: fixed;
+      top: 12px;
+      right: 12px;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      z-index: 10;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #e5e7eb;
+      background: rgba(255,255,255,0.12);
+      padding: 8px 12px;
+      border-radius: 999px;
+      backdrop-filter: blur(6px);
+      transition: transform 0.2s ease, background 0.2s ease;
+      font-size: 14px;
+      white-space: nowrap;
+    }
+
+    nav a:hover {
+      transform: translateY(-2px);
+      background: rgba(255,255,255,0.22);
+    }
+
+    .card {
+      width: 100%;
+      max-width: 520px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 20px;
+      padding: 22px 18px 26px;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+      text-align: center;
+    }
+
+    h1 {
+      margin: 0 0 16px;
+      font-size: clamp(1.1rem, 3.5vw, 1.5rem);
+      line-height: 1.3;
+      letter-spacing: 0.3px;
+    }
+
+    .controls {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    button {
+      border: none;
+      padding: 12px 16px;
+      border-radius: 12px;
+      cursor: pointer;
+      font-size: clamp(0.9rem, 3vw, 1rem);
+      font-weight: 600;
+      color: #0f172a;
+      background: linear-gradient(135deg, #22c55e, #86efac);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+      transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
+      min-height: 44px; /* touch-friendly */
+    }
+
+    #stop {
+      background: linear-gradient(135deg, #ef4444, #fecaca);
+    }
+
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 26px rgba(0,0,0,0.25);
+    }
+
+    button:active {
+      transform: translateY(0);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    }
+
+    button:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+    }
+
+    footer {
+      position: fixed;
+      bottom: 10px;
+      font-size: 12px;
+      opacity: 0.7;
+      text-align: center;
+      width: 100%;
+      pointer-events: none;
+    }
+
+    /* Tablet & up */
+    @media (min-width: 640px) {
+      .card {
+        padding: 28px 24px 32px;
+      }
+      nav {
+        top: 16px;
+        right: 16px;
+      }
+      nav a {
+        font-size: 15px;
+      }
+    }
+
+    /* Desktop & up */
+    @media (min-width: 1024px) {
+      .controls {
+        grid-template-columns: auto auto;
+        justify-content: center;
+      }
+      button {
+        padding: 12px 22px;
+        min-width: 140px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="http://127.0.0.1:5500/Set_func,js/change_color.html" aria-current="page">Home</a>
+    <a href="https://leetcode.com/u/Vivek_Shukla_25/" target="_blank" rel="noreferrer">Leetcode</a>
+  </nav>
+
+  <div class="card">
+    <h1>Click on Start to change the background color</h1>
+    <div class="controls">
+      <button id="start">Start</button>
+      <button id="stop" disabled>Stop</button>
+    </div>
+  </div>
+
+  <footer>Made with 💙 by Vivek Shukla</footer>
+
+  <script>
+    const randomColor = function () {
+      const hex = '0123456789ABCDEF';
+      let color = '#';
+      for (let i = 0; i < 6; i++) {
+        color += hex[Math.floor(Math.random() * 16)];
+      }
+      return color;
+    };
+
+    let intervalid = null;
+
+    const startBtn = document.getElementById("start");
+    const stopBtn = document.getElementById("stop");
+
+    function changeBycolor() {
+      document.body.style.backgroundColor = randomColor();
+    }
+
+    function startChangingColor() {
+      if (intervalid === null) {
+        intervalid = setInterval(changeBycolor, 1000);
+        startBtn.disabled = true;
+        stopBtn.disabled = false;
+      }
+    }
+
+    function stopChangingColor() {
+      if (intervalid !== null) {
+        clearInterval(intervalid);
+        intervalid = null;
+        startBtn.disabled = false;
+        stopBtn.disabled = true;
+      }
+    }
+
+    startBtn.addEventListener("click", startChangingColor);
+    stopBtn.addEventListener("click", stopChangingColor);
+  </script>
+</body>
+</html>
