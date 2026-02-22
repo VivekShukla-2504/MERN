@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Press a Key</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    }
+
+    body {
+      min-height: 100svh;
+      margin: 0;
+      display: grid;
+      place-items: center;
+      background: radial-gradient(1200px 600px at 20% -10%, #1f2933, #0f172a);
+      color: #e5e7eb;
+      transition: background-color 0.4s ease;
+      padding: 16px;
+    }
+
+    nav {
+      position: fixed;
+      top: 12px;
+      right: 12px;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      z-index: 10;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #e5e7eb;
+      background: rgba(255,255,255,0.12);
+      padding: 8px 12px;
+      border-radius: 999px;
+      backdrop-filter: blur(6px);
+      transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+      font-size: 14px;
+      white-space: nowrap;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.25);
+    }
+
+    nav a:hover {
+      transform: translateY(-2px);
+      background: rgba(255,255,255,0.22);
+      box-shadow: 0 10px 22px rgba(0,0,0,0.35);
+    }
+
+    .project {
+      width: 100%;
+      max-width: 560px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.12), rgba(255,255,255,0.06));
+      border-radius: 22px;
+      padding: 22px 18px 26px;
+      backdrop-filter: blur(10px);
+      box-shadow:
+        0 20px 40px rgba(0,0,0,0.25),
+        inset 0 1px 0 rgba(255,255,255,0.08);
+      text-align: center;
+    }
+
+    .key {
+      display: grid;
+      gap: 14px;
+      place-items: center;
+    }
+
+    h1 {
+      margin: 0 0 6px;
+      font-size: clamp(1.1rem, 3.8vw, 1.6rem);
+      line-height: 1.25;
+      letter-spacing: 0.3px;
+    }
+
+    .hint {
+      opacity: 0.8;
+      font-size: clamp(0.85rem, 3vw, 0.95rem);
+    }
+
+    .key-box {
+      margin-top: 12px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      width: 100%;
+    }
+
+    .tile {
+      background: rgba(255,255,255,0.14);
+      border-radius: 14px;
+      padding: 12px 10px;
+      box-shadow: 0 10px 22px rgba(0,0,0,0.25);
+    }
+
+    .tile b {
+      display: block;
+      font-size: 12px;
+      opacity: 0.75;
+      margin-bottom: 6px;
+      letter-spacing: 0.3px;
+      text-transform: uppercase;
+    }
+
+    .tile span {
+      font-size: clamp(0.95rem, 3.2vw, 1.05rem);
+      word-break: break-word;
+    }
+
+    footer {
+      position: fixed;
+      bottom: 10px;
+      font-size: 12px;
+      opacity: 0.7;
+      text-align: center;
+      width: 100%;
+      pointer-events: none;
+    }
+
+    /* Tablet & up */
+    @media (min-width: 640px) {
+      .project {
+        padding: 28px 24px 32px;
+      }
+      nav {
+        top: 16px;
+        right: 16px;
+      }
+      nav a {
+        font-size: 15px;
+      }
+    }
+
+    /* Desktop & up */
+    @media (min-width: 1024px) {
+      .key-box {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="http://127.0.0.1:5500/Set_func,js/change_color.html" aria-current="page">Home</a>
+    <a href="https://leetcode.com/u/Vivek_Shukla_25/" target="_blank" rel="noreferrer">Leetcode</a>
+  </nav>
+
+  <div class="project">
+    <div id="insert">
+      <div class="key">
+        <h1>Press any key and watch magic ✨</h1>
+        <p class="hint">We’ll show you the key, code, and keyCode</p>
+
+        <!-- Result will be injected here -->
+        <div class="key-box" id="result" hidden>
+          <div class="tile">
+            <b>Key</b>
+            <span id="k"></span>
+          </div>
+          <div class="tile">
+            <b>Code</b>
+            <span id="c"></span>
+          </div>
+          <div class="tile">
+            <b>KeyCode</b>
+            <span id="kc"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>Made with 💙 by Vivek Shukla</footer>
+
+  <script>
+    const result = document.getElementById("result");
+    const k = document.getElementById("k");
+    const c = document.getElementById("c");
+    const kc = document.getElementById("kc");
+
+    window.addEventListener("keydown", (e) => {
+      result.hidden = false;
+
+      k.textContent = e.key === " " ? "Space" : e.key;
+      c.textContent = e.code;
+      kc.textContent = e.keyCode; // deprecated but fine for learning/demo
+    });
+  </script>
+</body>
+</html>
